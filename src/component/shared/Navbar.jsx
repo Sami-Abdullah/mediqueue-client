@@ -1,3 +1,5 @@
+'use client'
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React from 'react';
 
@@ -9,10 +11,20 @@ const Navbar = () => {
     { name: 'My Tutors', url: '/mytutors' },
     { name: 'My Sessions', url: '/sessions' },
     { name: 'All Tutors', url: '/tutors' },
-    { name: 'Sign In', url: '/signin' },
-    { name: 'Sign Up', url: '/signup' },
-
   ]
+
+  const handleSignout = async () => {
+    await authClient.signOut({
+    
+    });
+  }
+  const {
+    data: session,
+    isPending, //loading state
+    error, //error object
+    refetch //refetch the session
+  } = authClient.useSession()
+  console.log(session);
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -28,6 +40,8 @@ const Navbar = () => {
                 <li key={index}><Link href={path.url} >{path.name} </Link></li>
               ))
             }
+            <li ><Link href='/signin' >Sign in </Link></li>
+            <li ><Link href='/signup' >Sign Up </Link></li>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">MediQueue</a>
@@ -39,12 +53,27 @@ const Navbar = () => {
               <li key={index}><Link href={path.url} >{path.name} </Link></li>
             ))
           }
+
         </ul>
       </div>
-      <div className="navbar-end">
-       
+      <div className="navbar-end px-10">
+        {
+
+          isPending ? <p>Loading.....</p> :
+
+            session ?
+              <div className='btn' onClick={handleSignout }> SignOut</div>
+
+              :
+              <div className='flex gap-4'>
+                <Link href='/signin' >Sign in </Link>
+                <Link href='/signup' >Sign Up </Link>
+              </div>
+
+
+        }
       </div>
-    </div>
+    </div >
   );
 };
 
