@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const handleSignout = async () => {
     await authClient.signOut({
-    
+
     });
   }
   const {
@@ -62,10 +62,13 @@ const Navbar = () => {
           isPending ? <p>Loading.....</p> :
 
             session ?
-              <div className='btn' onClick={handleSignout }> SignOut</div>
+              <div className='space-x-4'>
+                <Link href={'/profile'}> Profile</Link>
+                <Link href={''} onClick={handleSignout}> Sign Out</Link>
+              </div>
 
               :
-              <div className='flex gap-4'>
+              <div className='space-x-4'>
                 <Link href='/signin' >Sign in </Link>
                 <Link href='/signup' >Sign Up </Link>
               </div>
