@@ -4,72 +4,54 @@ import {
   FaBookOpen,
   FaChalkboardTeacher,
   FaUserGraduate,
-  FaChartLine,
-  FaInfinity,
 } from "react-icons/fa";
+
 const Stats = () => {
   const statsData = [
-    {
-      id: 1,
-      number: "500+",
-      label: "Student Achievements",
-      description: "Recognitions & Milestones",
-      icon: FaTrophy,
-    },
-    {
-      id: 2,
-      number: "30+",
-      label: "Subjects Covered",
-      description: "Diverse domains & expertise",
-      icon: FaBookOpen,
-    },
-    {
-      id: 3,
-      number: "1000k",
-      label: "Learning Sessions",
-      description: "Successful tutoring hours",
-      icon: FaChalkboardTeacher,
-    },
-    {
-      id: 4,
-      number: "400+",
-      label: "Certified Tutors",
-      description: "Vetted industry experts",
-      icon: FaUserGraduate,
-    },
+    { id: 1, number: "500+", label: "Student Achievements", description: "Recognitions & Milestones", icon: FaTrophy },
+    { id: 2, number: "30+", label: "Subjects Covered", description: "Diverse domains & expertise", icon: FaBookOpen },
+    { id: 3, number: "1000k", label: "Learning Sessions", description: "Successful tutoring hours", icon: FaChalkboardTeacher },
+    { id: 4, number: "400+", label: "Certified Tutors", description: "Vetted industry experts", icon: FaUserGraduate },
   ];
-  return (
-    <div className='py-30'>
 
-      <div className="card bg-[#13315c] card-xl shadow-sm ">
-        <div className="card-body space-y-10 py-20">
-          <h2 className="text-5xl font-semibold text-center text-[#eef4ed]">
-            Proven Results, Measurable Impact
+  return (
+    <div className="w-full px-4 sm:px-6 lg:px-8 bg-[#eef4ed]">
+      <div className="card bg-gradient-to-br from-[#13315c] to-[#0b2545] shadow-xl rounded-2xl overflow-hidden">
+        <div className="card-body space-y-6 sm:space-y-10 py-12 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-12">
+          
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-[#eef4ed]">
+            Proven Results, <span className="text-[#8da9c4]">Measurable Impact</span>
           </h2>
-          <p className="text-[#eef4ed] text-center text-xl">
+          
+          <p className="text-[#8da9c4] text-center text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
             Thousands of learners, expert tutors, and outcomes that speak for themselves
           </p>
 
-          <div className='grid grid-cols-4 gap-5'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6'>
             {statsData.map((stat, index) => {
-              const IconComponent = stat.icon; // 
-
+              const IconComponent = stat.icon;
               return (
-                <div key={index} className="card bg-base-100 card-md shadow-sm">
-                  <div className="card-body text-center">
-                    <div className='flex gap-4 mx-auto'>
-                      <IconComponent className="text-4xl text-[#13315c] mb-2" />
-                      <div className="text-3xl font-bold">{stat.number}</div>
+                <div key={index} className="card bg-white/95 backdrop-blur-sm hover:bg-white transition-all duration-300 shadow-lg hover:shadow-2xl rounded-xl overflow-hidden">
+                  <div className="card-body p-5 sm:p-6 md:p-7 text-center">
+                    <div className='flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3'>
+                      <div className="p-3 bg-[#134074]/10 rounded-full group-hover:bg-[#134074]/20 transition-colors duration-300">
+                        <IconComponent className="text-3xl sm:text-4xl text-[#134074]" />
+                      </div>
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0b2545]">
+                        {stat.number}
+                      </div>
                     </div>
-                    <h2 className="text-2xl font-semibold">{stat.label}</h2>
-                    <p className='text-xl'>{stat.description}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#0b2545] mb-1">
+                      {stat.label}
+                    </h3>
+                    <p className='text-sm sm:text-base text-[#8da9c4]'>
+                      {stat.description}
+                    </p>
                   </div>
                 </div>
               );
             })}
-
           </div>
-
         </div>
       </div>
     </div>

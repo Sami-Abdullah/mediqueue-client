@@ -15,9 +15,7 @@ import Link from 'next/link'
 
 const HeroBanner = () => {
 
-  const handleGetStarted = () => {
 
-  }
   return (
     <div className="w-full">
       <Swiper
@@ -51,7 +49,7 @@ const HeroBanner = () => {
 
                 <Link
                   href="/tutors"
-                  className=" btn btn-primary text-xs md:text-lg px-6 md:px-10 py-3 md:py-5"
+                  className=" btn bg-[#0b2545] text-white text-xs md:text-lg px-6 md:px-10 py-3 md:py-5"
                 >
                   Get Started
                 </Link>
@@ -84,7 +82,7 @@ const HeroBanner = () => {
 
                 <Link
                   href="/tutors"
-                  className=" btn btn-primary text-xs md:text-lg px-6 md:px-10 py-3 md:py-5"
+                  className=" btn bg-[#0b2545] text-white text-xs md:text-lg px-6 md:px-10 py-3 md:py-5"
                 >
                   Browse Tutors
                 </Link>
@@ -117,7 +115,7 @@ const HeroBanner = () => {
 
                 <Link
                   href="/tutors"
-                  className=" btn btn-primary text-xs md:text-lg px-6 md:px-10 py-3 md:py-5"
+                  className=" btn bg-[#0b2545] text-white text-xs md:text-lg px-6 md:px-10 py-3 md:py-5"
                 >
                   Start Learning
                 </Link>
