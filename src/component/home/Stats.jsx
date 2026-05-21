@@ -15,11 +15,11 @@ const Stats = () => {
   ];
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 bg-[#eef4ed]">
-      <div className="card bg-gradient-to-br from-[#13315c] to-[#0b2545] shadow-xl rounded-2xl overflow-hidden">
+    <div className="w-full px-4 sm:px-6 lg:px-8 ">
+      <div className="card rounded-2xl overflow-hidden">
         <div className="card-body space-y-6 sm:space-y-10 py-12 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-12">
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-[#eef4ed]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-[#0b2545]">
             Proven Results, <span className="text-[#8da9c4]">Measurable Impact</span>
           </h2>
           
@@ -31,7 +31,7 @@ const Stats = () => {
             {statsData.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
-                <div key={index} className="card bg-white/95 backdrop-blur-sm hover:bg-white transition-all duration-300 shadow-lg hover:shadow-2xl rounded-xl overflow-hidden">
+                <div key={index} className="card bg-white/95  hover:bg-white transition-all duration-300 shadow-lg hover:shadow-2xl rounded-xl overflow-hidden">
                   <div className="card-body p-5 sm:p-6 md:p-7 text-center">
                     <div className='flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3'>
                       <div className="p-3 bg-[#134074]/10 rounded-full group-hover:bg-[#134074]/20 transition-colors duration-300">

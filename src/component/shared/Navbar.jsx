@@ -92,8 +92,29 @@ const Navbar = () => {
 
               session ?
                 <div className='space-x-4'>
-                  <Link href={'/profile'} className='btn btn-success text-white px-7'> Profile</Link>
-                  <Link href={''} onClick={handleSignout} className='btn btn-error text-white'> Sign Out</Link>
+                  <Link href={'/profile'} className='btn bg-[#0b2545] text-white px-7'> Profile</Link>
+
+
+                  {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                  <button className="btn btn-error text-white" onClick={() => document.getElementById('my_modal_4').showModal()}>Sign out</button>
+                  <dialog id="my_modal_4" className="modal">
+                    <div className="modal-box ">
+                      <h3 className="font-bold text-lg">Are you sure?</h3>
+                      <p className="py-4">Every session makes you stronger. Take a break, recharge, and come back even better!</p>
+                      <div className="modal-action">
+                        <form method="dialog">
+                          {/* if there is a button, it will close the modal */}
+                          <button className="btn">Close</button>
+                        </form>
+                        <div onClick={handleSignout} className='btn btn-error text-white'>Sign out</div>
+                      </div>
+                    </div>
+                  </dialog>
+
+
+
+
+
                 </div>
 
                 :
