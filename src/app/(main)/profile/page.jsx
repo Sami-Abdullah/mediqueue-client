@@ -13,7 +13,7 @@ const UserProfilePage = () => {
   console.log(user);
   console.log(session,'here');
   return (
-    <div className=' mx-auto border shadow-xl w-40 my-10 p-10 text-center'>
+    <div className='mx-auto border shadow-xl w-40 my-10 p-10 text-center'>
       <h1>{user.name} </h1>
       <h1>{user.email} </h1>
     </div>

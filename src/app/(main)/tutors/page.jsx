@@ -2,9 +2,11 @@ import Link from 'next/link';
 import React from 'react';
 
 const AllTutorPage = async () => {
-  const data = await fetch('http://localhost:5000/tutors')
+  const data = await fetch('http://localhost:5000/tutors',{
+    
+  })
   const tutors = await data.json()
-  console.log(Array.isArray(tutors), tutors);
+
   return (
     <div className='text-center container mx-auto space-y-3 my-10'>
       <h1> here are the tutors</h1>
@@ -16,7 +18,6 @@ const AllTutorPage = async () => {
               <h1> {tutor.email}</h1>
               <Link className='btn btn-success text-gray-600' href={`/tutors/${tutor._id}`}>Details</Link>
             </div>
-
           ))
         }
       </div>
