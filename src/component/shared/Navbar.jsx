@@ -26,9 +26,9 @@ const Navbar = () => {
   } = authClient.useSession()
   console.log(session);
   return (
-    <div className="navbar  bg-base-100 shadow-sm ">
+    <div className="navbar  bg-[#eef4ed] shadow-sm ">
 
-      <div className='flex items-center justify-between md:w-5xl lg:w-7xl mx-auto'>
+      <div className='flex items-center justify-between w-11/12 mx-auto'>
 
         <div className="">
           <div className="dropdown">
@@ -92,8 +92,8 @@ const Navbar = () => {
 
               session ?
                 <div className='space-x-4'>
-                  <Link href={'/profile'}> Profile</Link>
-                  <Link href={''} onClick={handleSignout}> Sign Out</Link>
+                  <Link href={'/profile'} className='btn btn-success text-white px-7'> Profile</Link>
+                  <Link href={''} onClick={handleSignout} className='btn btn-error text-white'> Sign Out</Link>
                 </div>
 
                 :
