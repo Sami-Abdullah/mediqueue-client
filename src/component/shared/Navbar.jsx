@@ -40,12 +40,10 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li ><Link href={'/'} >Home </Link></li>
               <li ><Link href={'/tutors'} >All tutors </Link></li>
-              <li ><Link href={'/about'} > About Us</Link></li>
               {
                 session ?
                   <>
                     <li ><Link href={'/mytutors'} >My Tutors </Link></li>
-                    <li ><Link href={'/tutors'} >All tutors </Link></li>
                     <li ><Link href={'/sessions'} > My Sessions</Link></li>
                     <li>
 
@@ -62,6 +60,7 @@ const Navbar = () => {
 
                   </>
               }
+              <li ><Link href={'/about'} > About Us</Link></li>
             </ul>
           </div>
           <Link href={'/'} className='text-xl font-bold italic '>MediQueue</Link>
@@ -71,18 +70,18 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             <li ><Link href={'/'} >Home </Link></li>
             <li ><Link href={'/tutors'} >All tutors </Link></li>
-            <li ><Link href={'/about'} > About Us</Link></li>
             {
               session ?
                 <>
                   <li ><Link href={'/mytutors'} >My Tutors </Link></li>
-                  <li ><Link href={'/tutors'} >All tutors </Link></li>
+
                   <li ><Link href={'/sessions'} > My Sessions</Link></li>
                 </> :
                 <>
 
                 </>
             }
+            <li ><Link href={'/about'} > About Us</Link></li>
           </ul>
         </div>
         <div className=" hidden lg:flex">

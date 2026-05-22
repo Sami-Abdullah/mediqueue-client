@@ -1,8 +1,10 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 import React from 'react';
-
+import {toast} from 'react-toastify'
 const SignUppage = () => {
+  const router = useRouter()
   const handleSubmit =async (e)=>{
     e.preventDefault();
     const res = new FormData(e.currentTarget)
@@ -14,9 +16,10 @@ const SignUppage = () => {
       password:formData.password,
     })
     if(!error){
-      alert('you in')
+      toast.success('Signed up')
+      router.push('/signin')
     }else{
-      alert(error.message)
+      toast.error(error.message)
     }
 
   }

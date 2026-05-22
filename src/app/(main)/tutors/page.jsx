@@ -33,7 +33,7 @@ const AllTutorPage = async ({ searchParams }) => {
   return (
     <section className="min-h-screen bg-[#eef4ed] py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
-        {/* Header */}
+
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0b2545] mb-4">
             Find Your <span className="text-[#134074]">Perfect Tutor</span>
@@ -103,15 +103,15 @@ const AllTutorPage = async ({ searchParams }) => {
             {tutors.map((tutor, index) => (
               <div 
                 key={index} 
-                className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                className=" bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
               >
-                <div className="relative h-56 w-full bg-[#8da9c4]/20">
+                <div className="relative h-110 w-full bg-[#8da9c4]/20">
                   {tutor.photo ? (
                     <Image
                       src={tutor.photo}
-                      alt={tutor.name || tutor.email}
+                      alt={tutor.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover "
                     />
                   ) : (
                     <div className="flex items-center justify-center h-full">
@@ -120,26 +120,26 @@ const AllTutorPage = async ({ searchParams }) => {
                   )}
                 </div>
                 <div className="p-5 space-y-3">
-                  <h2 className="text-xl font-bold text-[#0b2545] line-clamp-1">
-                    {tutor.name || 'Tutor Name'}
+                  <h2 className="text-xl font-bold text-[#0b2545] ">
+                    {tutor.name }
                   </h2>
                   <div className="flex items-center justify-between">
                     <span className="px-2 py-1 bg-[#134074]/10 text-[#134074] rounded text-xs font-semibold">
-                      {tutor.subject || 'Subject'}
+                      {tutor.subject }
                     </span>
-                    {tutor.rating && (
+                    
                       <span className="flex items-center gap-1 text-sm">
                         <span className="text-yellow-500">★</span> {tutor.rating}
                       </span>
-                    )}
+                    
                   </div>
                   <p className="text-sm text-[#13315c] line-clamp-2">
-                    {tutor.description || 'Experienced tutor passionate about teaching'}
+                    {tutor.description}
                   </p>
                   <div className="flex items-center justify-between pt-2 border-t border-[#8da9c4]/20">
                     <div>
                       <p className="text-xs text-[#8da9c4]">Hourly Fee</p>
-                      <p className="text-xl font-bold text-[#134074]">${tutor.hourlyFee || '0'}</p>
+                      <p className="text-xl font-bold text-[#134074]">${tutor.hourlyFee}</p>
                     </div>
                     <Link 
                       href={`/tutors/${tutor._id}`}

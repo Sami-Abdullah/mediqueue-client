@@ -1,8 +1,10 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
 import React from 'react';
-
+import {  toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 const SignInpage = () => {
+  const router = useRouter();
   const handelSubmit = async (e) => {
     e.preventDefault()
     const res = new FormData(e.currentTarget)
@@ -14,10 +16,11 @@ const SignInpage = () => {
       password: dataForm.password
     })
     if(!error){
-      alert(`you have logged in with,${dataForm.email} you will be redirected to home page`)
+      toast.success('Logged In')
+      router.push('/')
     }else{
-      alert(error.message)
-      console.log(error);
+     toast.error(`${error.message}`)
+
     }
   }
   return (
