@@ -10,8 +10,9 @@ const MyTutorPage = async () => {
 
   const tutorDatas = await getTutors();
   return (
-    <div className='py-60'>
-      
+    <div className='min-h-screen mx-auto '>
+      <h1 className='mb-2 mt-20 text-3xl text-center bg-[#0b2545]
+      px-10 py-5 text-[#eef4ed] font-semibold rounded-sm'>My Tutors</h1>
       <MyTutors bookingDatas={bookingDatas} tutorDatas={tutorDatas}></MyTutors>
     </div>
   );

@@ -81,7 +81,7 @@ const MySessions = ({ sessions, tutorsData }) => {
           const dateFormated = formatDate(tutor.bookingDate)
           const timeFormated = formatTimeForDisplay(tutor.bookingTime)
           return (
-            <div key={index} className="card w-[500] bg-base-100 card-xl shadow-sm">
+            <div key={index} className="card w-[500] bg-base-100 card-xl shadow-sm transition-all hover:shadow-2xl">
               <div className="card-body py-5">
                 <h1 className='text-[#0b2545]/30'>#{`${index + 1}`}</h1>
                 <h2 className="card-title">{sessionFormated}</h2>
