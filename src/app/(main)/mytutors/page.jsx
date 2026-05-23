@@ -1,14 +1,14 @@
 
 import MyTutors from '@/component/tutor/MyTutors';
+import { getBookings, getTutors } from '@/lib/Fetch';
 
 import React from 'react';
 
 const MyTutorPage = async () => {
 
-  const res1 = await fetch(`http://localhost:5000/booking`)
-  const bookingDatas = await res1.json()
-  const res2 = await fetch(`http://localhost:5000/tutors`)
-  const tutorDatas = await res2.json()
+  const bookingDatas = await getBookings()
+
+  const tutorDatas = await getTutors();
   return (
     <div className='py-60'>
       

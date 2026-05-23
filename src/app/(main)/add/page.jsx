@@ -20,8 +20,7 @@ const AddTutorpage = () => {
       },
       body: JSON.stringify(data)
     })
-    console.log(await res.json(),);
-    console.log(res);
+ 
     if (res) {
       toast.success('Teacher added')
     } else {

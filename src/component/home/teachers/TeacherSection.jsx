@@ -1,10 +1,12 @@
 import React from 'react';
 import TeachersSlide from './TeachersSlide';
+import { getAlltutors, getTutors } from '@/lib/Fetch';
 
 const TeacherSection = async () => {
-  const res = await fetch('http://localhost:5000/tutors')
 
-  const allTeachers = await res.json()
+  const allTeachers = await getTutors()
+
+
   const teachers = allTeachers.slice(0, 6);
   console.log(teachers, "here");
   return (

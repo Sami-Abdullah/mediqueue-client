@@ -14,17 +14,14 @@ const MyTutors = ({ bookingDatas, tutorDatas }) => {
 
 
   const myBookings = bookingDatas.filter(booking => booking.studentid === studentId);
-  console.log("My Bookings:", myBookings);
 
+  console.log(myBookings,'booking here');
   const tutors = myBookings.map(booking => {
-    console.log("Looking for teacher with _id:", booking.teacherid);
 
     const teacher = tutorDatas.find(tutor => {
-      console.log("Comparing:", tutor._id, "===", booking.teacherid, "Result:", tutor._id === booking.teacherid);
       return tutor._id === booking.teacherid;
     });
 
-    console.log("Found teacher:", teacher);
 
     return {
       ...teacher,

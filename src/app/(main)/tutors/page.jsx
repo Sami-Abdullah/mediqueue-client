@@ -3,31 +3,20 @@ import React from 'react';
 import Image from 'next/image';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { GoStarFill } from 'react-icons/go';
+import { getTutors } from '@/lib/Fetch';
 
 
 const AllTutorPage = async ({ searchParams }) => {
-  const { subject, location, minFee, maxFee } = await searchParams;
+  const { subject, location } = await searchParams;
 
   // Build query string
   const queryParams = new URLSearchParams();
   if (subject) queryParams.append('subject', subject);
   if (location) queryParams.append('location', location);
-  if (minFee) queryParams.append('minFee', minFee);
-  if (maxFee) queryParams.append('maxFee', maxFee);
 
   const queryString = queryParams.toString();
-  const url = `http://localhost:5000/tutors${queryString ? `?${queryString}` : ''}`;
-
-  const data = await fetch(url, {
-    method: 'GET',
-    cache: 'no-store',
-  });
-
-  if (!data.ok) {
-    throw new Error('Failed to fetch tutors');
-  }
-
-  const tutors = await data.json();
+  
+  const tutors = await getTutors(queryString);
 
 
   const subjects = [...new Set(tutors.map(t => t.subject).filter(Boolean))];

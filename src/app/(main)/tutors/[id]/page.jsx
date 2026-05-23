@@ -2,7 +2,8 @@
 import BookSessionModal from '@/component/tutor/BookSessionModal';
 import SlotMeter from '@/component/tutor/SlotMeter';
 import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import { getTutorDetails } from '@/lib/Fetch';
+
 import Image from 'next/image';
 import React from 'react';
 import { AiFillClockCircle } from 'react-icons/ai';
@@ -13,16 +14,9 @@ import { PiCurrencyDollarFill } from 'react-icons/pi';
 
 const TutorDetailsPage = async ({ params,searchParams }) => {
   const { id } = await params;
-  const {date} = await searchParams;
-  const { token } = await auth.api.getToken({
-    headers: await headers()
-  })
-  const result = await fetch(`http://localhost:5000/tutors/${id}`, {
-    headers: {
-      authorization: `Bearer ${token}`
-    }
-  })
-  const tutor = await result.json()
+  
+
+  const tutor = await getTutorDetails(id)
 
   return (
     <div className='container mx-auto py-40' >
