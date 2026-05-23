@@ -7,7 +7,7 @@ import TeacherSection from "@/component/home/teachers/TeacherSection";
 export default function Home() {
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-[#eef4ed] font-sans space-y-20">
+    <div className="flex flex-col flex-1 items-center justify-center  font-sans space-y-20">
         
         <HeroBanner></HeroBanner>
         <Stats ></Stats>
