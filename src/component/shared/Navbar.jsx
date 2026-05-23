@@ -55,7 +55,7 @@ const Navbar = () => {
                     </li>
                   </> :
                   <>
-                    <li ><Link href='/signin' >Sign in </Link></li>
+                    <li ><Link href='/signin ' >Sign in </Link></li>
                     <li ><Link href='/signup' >Sign Up </Link></li>
 
                   </>
@@ -81,7 +81,7 @@ const Navbar = () => {
 
                 </>
             }
-            <li ><Link href={'/about'} > About Us</Link></li>
+            <li ><Link href={'/add'} > Add Tutor</Link></li>
           </ul>
         </div>
         <div className=" hidden lg:flex">
@@ -118,8 +118,8 @@ const Navbar = () => {
 
                 :
                 <div className='space-x-4'>
-                  <Link href='/signin' >Sign in </Link>
-                  <Link href='/signup' >Sign Up </Link>
+                  <Link href='/signin' className='btn bg-[#134074]/20'>Sign in </Link>
+                  <Link href='/signup' className='btn bg-error/30'>Sign Up </Link>
                 </div>
 
 
