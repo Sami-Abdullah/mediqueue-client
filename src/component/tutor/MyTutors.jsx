@@ -43,7 +43,7 @@ const MyTutors = ({ bookingDatas, tutorDatas }) => {
       {tutors.map((tutor, index) => (
         <div
           key={ index}
-          className=" relative p-5  rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex justify-between"
+          className=" relative p-5  rounded-2xl bg-white shadow-sm hover:shadow-2xl transition-all  flex justify-between"
         >
           <div className='mr-10'>
 

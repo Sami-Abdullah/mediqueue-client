@@ -32,14 +32,27 @@ export const getTutorDetails = async (id) => {
   return data
 }
 export const addTutor = async (data) => {
-    const res = await fetch('http://localhost:5000/tutors', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    
-    const result = await res.json()
-    return result
+  const res = await fetch('http://localhost:5000/tutors', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  
+  const result = await res.json()
+  return result
 }
+
+export const getUser = async (id) => {
+
+    const res = await fetch(`http://localhost:5000/users
+      /${id}`, {
+
+
+    })
+
+  const data = res.json()
+  return data
+}
+

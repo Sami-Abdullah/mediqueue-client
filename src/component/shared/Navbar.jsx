@@ -1,10 +1,11 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
-import React from 'react';
+
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
-
+  const router = useRouter()
   const paths = [
     { name: 'Home', url: '/' },
     { name: 'All Tutors', url: '/tutors' },
@@ -15,8 +16,8 @@ const Navbar = () => {
 
   const handleSignout = async () => {
     await authClient.signOut({
-
     });
+    router.push('/')
   }
   const {
     data: session,
@@ -24,7 +25,7 @@ const Navbar = () => {
     error, //error object
     refetch //refetch the session
   } = authClient.useSession()
-
+  console.log(session?.user,'herhe');
   return (
     <div className="navbar  bg-[#eef4ed] shadow-sm ">
 

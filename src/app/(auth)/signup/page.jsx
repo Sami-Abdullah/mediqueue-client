@@ -14,12 +14,12 @@ const SignUppage = () => {
   } = useForm()
   const router = useRouter()
   const onSubmit = async (data) => {
-
-
+    console.log(data.photo);
     const { data: formData, error } = await authClient.signUp.email({
       email: data.email,
       name: data.name,
       password: data.password,
+      image:data.photo
     })
     if (!error) {
       toast.success('Signed up')
@@ -48,6 +48,9 @@ const SignUppage = () => {
                 <label className="label">Email</label>
                 <input type="email" name='email' className="input" placeholder="Email" {...register('email',{ required: true })} />
                 {errors.email && <span className='text-error'>Email is required</span>}
+                <label className="label">Photo</label>
+                <input type="text" name='photo' className="input" placeholder="Photo" {...register('photo',{ required: true })} />
+                {errors.photo && <span className='text-error'>Photo is required</span>}
                 <label className="label">Password</label>
                 
                 <input type="text" name='password' className="input" placeholder="Password" {...register('password',{ required: true })} />

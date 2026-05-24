@@ -2,9 +2,9 @@
 import { authClient } from '@/lib/auth-client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 
-const BookSessionModal = ({id}) => {
+const BookSessionModal = ({ id }) => {
   const {
     data: session,
     isPending, //loading state
@@ -12,7 +12,7 @@ const BookSessionModal = ({id}) => {
     refetch //refetch the session
   } = authClient.useSession()
   const user = session?.user;
-  
+
   const {
     register,
     handleSubmit,
@@ -22,8 +22,8 @@ const BookSessionModal = ({id}) => {
 
   const onSubmit = async (data) => {
 
-    data.teacherid= id
-    data.studentid= user.id
+    data.teacherid = id
+    data.studentid = user.id
     console.log(data);
     const res = await fetch('http://localhost:5000/bookings', {
       method: 'POST',
@@ -31,11 +31,12 @@ const BookSessionModal = ({id}) => {
         'content-type': 'application/json'
       },
       body: JSON.stringify(data)
-    })
 
-    if(res){
+    })
+    document.getElementById('my_modal_1').close()
+    if (res) {
       toast.success('Session booked')
-    }else {
+    } else {
       toast.error('Try again later')
     }
   }
@@ -62,13 +63,14 @@ const BookSessionModal = ({id}) => {
             {/* Session Type */}
             <div>
               <label className="label text-sm font-medium mb-1 block">Session Type</label>
-              <select className="select select-bordered w-full" name="sessionType" {...register('session')}>
+              <select className="select select-bordered w-full" name="sessionType" {...register('session', { required: true })}>
                 <option value="">Select session type</option>
                 <option value="consultation">Free Consultation (30 min)</option>
                 <option value="standard">Standard Session (1 hour)</option>
                 <option value="premium">Premium Session (2 hours)</option>
                 <option value="group">Group Session</option>
               </select>
+              {errors.time && <span className='text-error'>Session Type is required</span>}
             </div>
 
 
@@ -78,13 +80,14 @@ const BookSessionModal = ({id}) => {
                 type="date"
                 name="date"
                 className="input input-bordered w-full"
-                {...register('date')}
+                {...register('date', { required: true })}
               />
+              {errors.date && <span className='text-error'>Date is required</span>}
             </div>
 
             <div>
               <label className="label text-sm font-medium mb-1 block">Preferred Time</label>
-              <select className="select select-bordered w-full" name="time" {...register('time')}>
+              <select className="select select-bordered w-full" name="time" {...register('time', { required: true })}>
                 <option value="">Select time</option>
                 <option value="09:00">9:00 AM</option>
                 <option value="10:00">10:00 AM</option>
@@ -93,7 +96,9 @@ const BookSessionModal = ({id}) => {
                 <option value="15:00">3:00 PM</option>
                 <option value="16:00">4:00 PM</option>
               </select>
+              {errors.time && <span className='text-error'>Time is required</span>}
             </div>
+
 
 
 
