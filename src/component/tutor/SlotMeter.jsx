@@ -11,7 +11,7 @@ const SlotMeter = ({tutor}) => {
             style={{ width: `${(parseInt(tutor.totalSlot) / 20) * 100}%` }}
           ></div>
         </div>
-        <span className="font-bold">{tutor.totalSlot}/20</span>
+        <span className="font-bold text-primary-dark">{tutor.totalSlot}/20</span>
       </div>
     </div>
   );

@@ -37,9 +37,9 @@ const UserProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 py-10 px-4">
+    <div className="min-h-screen mt-10 py-10 px-4">
 
-      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden grid lg:grid-cols-2">
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden grid lg:grid-cols-2  shadow-[0_0_20px_rgba(255,255,255,0.15)]">
 
         {/* Left Side */}
         <div className="bg-gradient-to-br from-[#134074] to-[#0b2545] p-10 flex flex-col items-center justify-center text-white">
@@ -86,7 +86,7 @@ const UserProfilePage = () => {
         {/* Right Side */}
         <div className="p-8 lg:p-12">
 
-          <h2 className="text-3xl font-bold mb-2">
+          <h2 className="text-3xl font-bold mb-2 text-primary-dark/50">
             Update Profile
           </h2>
 
@@ -98,7 +98,7 @@ const UserProfilePage = () => {
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
 
             <div>
-              <label className="block mb-2 font-medium">
+              <label className="block mb-2 font-medium text-primary-dark">
                 Full Name
               </label>
 
@@ -106,7 +106,8 @@ const UserProfilePage = () => {
                 type="text"
                 name="name"
                 defaultValue={user?.name || ''}
-                className="w-full border border-gray-300 p-4 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full border border-gray-300 p-4 rounded-xl  focus:outline-none outline-none text-primary-dark
+                "
                 {...register('name')}
               />
             </div>
@@ -114,7 +115,7 @@ const UserProfilePage = () => {
 
             {/* Email */}
             <div>
-              <label className="block mb-2 font-medium">
+              <label className="block mb-2 font-medium text-primary-dark">
                 Email
               </label>
 
@@ -122,14 +123,14 @@ const UserProfilePage = () => {
                 type="email"
                 defaultValue={user?.email || ''}
                 disabled
-                className="w-full border border-gray-300 p-4 rounded-xl bg-gray-100 cursor-not-allowed"
+                className="w-full border border-gray-300 p-4 rounded-xl bg-gray-100 cursor-not-allowed text-primary-dark"
               />
             </div>
 
 
             {/* Image URL */}
             <div>
-              <label className="block mb-2 font-medium">
+              <label className="block mb-2 font-medium text-primary-dark">
                 Profile Image URL
               </label>
 
@@ -138,7 +139,7 @@ const UserProfilePage = () => {
                 name="image"
                 defaultValue={user?.image || ''}
                 placeholder="https://example.com/image.jpg"
-                className="w-full border border-gray-300 p-4 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"{...register('image')}
+                className="w-full border border-gray-300 p-4 rounded-xl focus:outline-none outline-none text-primary-dark"{...register('image')}
               />
             </div>
 

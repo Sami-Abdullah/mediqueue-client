@@ -63,7 +63,7 @@ const BookSessionModal = ({ id }) => {
             {/* Session Type */}
             <div>
               <label className="label text-sm font-medium mb-1 block">Session Type</label>
-              <select className="select select-bordered w-full" name="sessionType" {...register('session', { required: true })}>
+              <select className="select select-bordered w-full focus:outline-none" name="sessionType" {...register('session', { required: true })}>
                 <option value="">Select session type</option>
                 <option value="consultation">Free Consultation (30 min)</option>
                 <option value="standard">Standard Session (1 hour)</option>
@@ -79,7 +79,7 @@ const BookSessionModal = ({ id }) => {
               <input
                 type="date"
                 name="date"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full focus:outline-none "
                 {...register('date', { required: true })}
               />
               {errors.date && <span className='text-error'>Date is required</span>}
@@ -87,7 +87,7 @@ const BookSessionModal = ({ id }) => {
 
             <div>
               <label className="label text-sm font-medium mb-1 block">Preferred Time</label>
-              <select className="select select-bordered w-full" name="time" {...register('time', { required: true })}>
+              <select className="select select-bordered w-full focus:outline-none " name="time" {...register('time', { required: true })}>
                 <option value="">Select time</option>
                 <option value="09:00">9:00 AM</option>
                 <option value="10:00">10:00 AM</option>

@@ -7,20 +7,20 @@ import { getTutorDetails } from '@/lib/Fetch';
 import Image from 'next/image';
 import React from 'react';
 import { AiFillClockCircle } from 'react-icons/ai';
-import { FaGraduationCap } from 'react-icons/fa';
-import { FaLocationDot } from 'react-icons/fa6';
+import { FaEnvelope, FaGraduationCap } from 'react-icons/fa';
+import { FaCalendarDays, FaLocationDot } from 'react-icons/fa6';
 import { IoCalendarSharp } from 'react-icons/io5';
 import { PiCurrencyDollarFill } from 'react-icons/pi';
 
-const TutorDetailsPage = async ({ params,searchParams }) => {
+const TutorDetailsPage = async ({ params, searchParams }) => {
   const { id } = await params;
-  
+
 
   const tutor = await getTutorDetails(id)
 
   return (
-    <div className='container mx-auto py-40' >
-      <div className="card md:card-side bg-base-100 shadow-sm">
+    <div className='container mx-auto py-40 rounded-2xl ' >
+      <div className="card md:card-side bg-bg-light shadow-sm">
         <figure className=''>
           <Image src={tutor.photo} alt={tutor.name} height={300} width={300}></Image>
         </figure>
@@ -39,41 +39,41 @@ const TutorDetailsPage = async ({ params,searchParams }) => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3 border-b border-gray-200 pb-3">
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-xl"><PiCurrencyDollarFill /></span>
+                    <span className="text-xl text-primary-dark"><PiCurrencyDollarFill /></span>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500">Hourly Fee</p>
-                    <p className="text-2xl font-bold text-[#134074]/50">${tutor.hourlyFee}</p>
+                    <p className="text-2xl font-bold text-[#134074]">${tutor.hourlyFee}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 border-b border-gray-200 pb-3">
                   <div className="w-10 h-10 bg-blue-100  rounded-full flex items-center justify-center">
-                    <span className="text-xl"><AiFillClockCircle /></span>
+                    <span className="text-xl text-primary-dark"><AiFillClockCircle /></span>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500">Available Time</p>
-                    <p className="font-semibold">{tutor.availableTime}</p>
+                    <p className="font-semibold text-primary-dark">{tutor.availableTime}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 border-b border-gray-200 pb-3">
                   <div className="w-10 h-10 bg-blue-100  rounded-full flex items-center justify-center">
-                    <span className="text-xl"><IoCalendarSharp /></span>
+                    <span className="text-xl text-primary-dark"><IoCalendarSharp /></span>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500">Available Days</p>
-                    <p className="font-semibold">{tutor.availableDays}</p>
+                    <p className="font-semibold text-primary-dark">{tutor.availableDays}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-blue-100  rounded-full flex items-center justify-center">
-                    <span className="text-xl"><FaGraduationCap /></span>
+                    <span className="text-xl text-primary-dark"><FaGraduationCap /></span>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500">Experience</p>
-                    <p className="font-semibold">{tutor.experience} years</p>
+                    <p className="font-semibold text-primary-dark">{tutor.experience} years</p>
                   </div>
                 </div>
               </div>
@@ -82,14 +82,14 @@ const TutorDetailsPage = async ({ params,searchParams }) => {
               <div className="space-y-4">
                 <div className="bg-gray-50 rounded-lg p-4">
                   <p className="text-xs text-gray-500 mb-1">Institution</p>
-                  <p className="font-semibold">{tutor.institution}</p>
+                  <p className="font-semibold text-primary-dark">{tutor.institution}</p>
                 </div>
 
                 <div className="bg-gray-50 rounded-lg p-4">
                   <p className="text-xs text-gray-500 mb-1">Location & Mode</p>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm flex items-center gap-1"><FaLocationDot /> {tutor.location}</span>
-                    <span className="text-sm">•</span>
+                    <span className="text-sm flex items-center gap-1 text-primary-dark"><FaLocationDot /> {tutor.location}</span>
+                    <span className="text-sm text-primary-dark">•</span>
                     <span className={`px-2 py-1 rounded-full text-xs bg-[#134074]/20 text-[#134074] `}>
                       {tutor.teachingMode}
                     </span>
@@ -98,12 +98,12 @@ const TutorDetailsPage = async ({ params,searchParams }) => {
 
                 <div className="bg-gray-50 rounded-lg p-4">
                   <p className="text-xs text-gray-500 mb-1">Session Start Date</p>
-                  <p className="font-semibold text-[#134074]">{tutor.sessionStartDate}</p>
+                  <p className="font-semibold text-[#134074] flex items-center gap-1"><FaCalendarDays />{tutor.sessionStartDate}</p>
                 </div>
 
                 <div className="bg-gray-50 rounded-lg p-4">
                   <p className="text-xs text-gray-500 mb-1">Contact</p>
-                  <p className="text-sm truncate">{tutor.email}</p>
+                  <p className="text-sm truncate flex items-center gap-1 text-primary-dark">  <FaEnvelope />{tutor.email}</p>
                 </div>
               </div>
 

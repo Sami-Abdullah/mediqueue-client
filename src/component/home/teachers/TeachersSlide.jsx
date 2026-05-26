@@ -12,14 +12,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const TeachersSlide = ({ teachers = [] }) => {
-  console.log("teachers:", teachers);
+
 
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-9/12 mx-auto gap-6 px-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-9/12 mx-auto gap-6 px-4 ">
       {teachers.map((teacher, index) => (
-        <div key={index} className="card bg-base-200 shadow-xl hover:shadow-2xl transition-shadow">
-          <figure className="w-full h-64 overflow-hidden pt-60">
+        <div key={index} className="card bg-bg-light shadow-xl hover:shadow-2xl transition-shadow">
+          <figure className="w-full h-100 overflow-hidden ">
             <Image
               src={teacher.photo}
               alt={teacher.name}
@@ -30,7 +30,7 @@ const TeachersSlide = ({ teachers = [] }) => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-xl font-bold">{teacher.name}</h2>
+            <h2 className="card-title text-xl font-bold dark:text-primary-dark">{teacher.name}</h2>
             <div className="flex gap-2">
               <span className="text-[#0b2545] ">{teacher.subject}</span>
               <span className="text-sm text-gray-600 font-semibold">{teacher.institution}</span>

@@ -39,10 +39,10 @@ const MyTutors = ({ bookingDatas, tutorDatas }) => {
   console.log(tutors, 'tutor here')
   return (
 
-    <div className="grid grid-cols-1 md:grid-cols-2  gap-6 container mx-auto ">
-      {tutors.map((tutor, index) => (
+    <div className="grid grid-cols-1 md:grid-cols-2  gap-5 container mx-auto ">
+      {tutors.length ? tutors.map((tutor, index) => (
         <div
-          key={ index}
+          key={index}
           className=" relative p-5  rounded-2xl bg-white shadow-sm hover:shadow-2xl transition-all  flex justify-between"
         >
           <div className='mr-10'>
@@ -100,7 +100,14 @@ const MyTutors = ({ bookingDatas, tutorDatas }) => {
 
 
         </div>
-      ))}
+      )) :
+        <div className="col-span-full text-center py-10 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <p className="text-gray-600 dark:text-gray-300">
+            You have no tutor yet. Add a tutor first.
+          </p>
+        </div>
+      }
+
     </div>
   );
 };

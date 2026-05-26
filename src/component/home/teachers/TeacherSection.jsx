@@ -8,14 +8,14 @@ const TeacherSection = async () => {
 
 
   const teachers = allTeachers.slice(0, 6);
-  console.log(teachers, "here");
+
   return (
     <div className=' w-full py-20'>
       <div className="text-center mb-12 ">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-300 mb-4">
           Meet Our Expert Tutors
         </h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           Learn from industry professionals and academic experts who are passionate about teaching and dedicated to your success.
         </p>
       </div>

@@ -23,14 +23,14 @@ const AllTutorPage = async ({ searchParams }) => {
   const locations = [...new Set(tutors.map(t => t.location).filter(Boolean))];
 
   return (
-    <section className="min-h-screen bg-[#eef4ed] py-12 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
 
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0b2545] mb-4">
-            Find Your <span className="text-[#134074]">Perfect Tutor</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0b2545] dark:text-bg-light mb-4">
+            Find Your <span className="text-[#134074] dark:text-bg-light">Perfect Tutor</span>
           </h1>
-          <p className="text-lg text-[#13315c] max-w-2xl mx-auto">
+          <p className="text-lg text-[#13315c] dark:text-gray-400 max-w-2xl mx-auto">
             Browse through our experienced tutors and find the right match for your learning journey
           </p>
         </div>
@@ -43,12 +43,12 @@ const AllTutorPage = async ({ searchParams }) => {
               name="subject"
               placeholder="Search by subject..."
               defaultValue={subject || ''}
-              className="px-4 py-2 border border-[#8da9c4] rounded-lg focus:outline-none focus:border-[#134074]"
+              className="px-4 py-2 border border-[#8da9c4] rounded-lg focus:outline-none focus:border-[#134074] text-gray-900 "
             />
             <select
               name="location"
               defaultValue={location || ''}
-              className="px-4 py-2 border border-[#8da9c4] rounded-lg focus:outline-none focus:border-[#134074]"
+              className="px-4 py-2 border border-[#8da9c4] rounded-lg focus:outline-none focus:border-[#134074]  text-gray-900"
             >
               <option value="">All Locations</option>
               {locations.map(loc => (
@@ -92,11 +92,11 @@ const AllTutorPage = async ({ searchParams }) => {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-10/12 mx-auto gap-6">
             {tutors.map((tutor, index) => (
               <div
                 key={index}
-                className=" bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                className=" bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1 "
               >
                 <div className="relative h-110 w-full bg-[#8da9c4]/20">
                   {tutor.photo ? (

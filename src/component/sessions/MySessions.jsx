@@ -26,8 +26,8 @@ const MySessions = ({ sessions, tutorsData }) => {
 
 
   const myTutors = mySessions.map(session => {
-    
-    const myTutor = tutorsData.find( tutor=>session.teacherid === tutor._id)
+
+    const myTutor = tutorsData.find(tutor => session.teacherid === tutor._id)
     return {
       ...myTutor,
       bookingId: session._id,
@@ -73,31 +73,31 @@ const MySessions = ({ sessions, tutorsData }) => {
   }
 
   return (
-    <div className='grid grid-cols-2 gap-3'>
+    <div className='grid  grid-cols-1 md:grid-cols-2 gap-3'>
 
-      {
-        myTutors.map((tutor, index) => {
+      {isPending? <span className="loading loading-bars loading-xl"></span> :myTutors.length ?
+        (myTutors.map((tutor, index) => {
           const sessionFormated = formatSession(tutor.sessionType)
           const dateFormated = formatDate(tutor.bookingDate)
           const timeFormated = formatTimeForDisplay(tutor.bookingTime)
           return (
-            <div key={index} className="card w-[500] bg-base-100 card-xl shadow-sm transition-all hover:shadow-2xl">
+            <div key={index} className="card card-96 md:w-125 bg-bg-light card-xl shadow-sm transition-all hover:shadow-2xl">
               <div className="card-body py-5">
-                <h1 className='text-[#0b2545]/30'>#{`${index + 1}`}</h1>
-                <h2 className="card-title">{sessionFormated}</h2>
-                <p className='flex items-center gap-2 '>
-                  <span>
+                <h1 className='text-[#0b2545]/70'>#{`${index + 1}`}</h1>
+                <h2 className="card-title text-primary-dark">{sessionFormated}</h2>
+                <p className='flex items-center gap-2 text-primary-dark'>
+                  <span >
                     <FaCalendarAlt />
                   </span>
                   {dateFormated}
                 </p>
-                <p className='flex items-center gap-2 '>
+                <p className='flex items-center gap-2 text-primary-dark'>
                   <span>
                     <FaClock />
                   </span>
                   {timeFormated}
                 </p>
-                <p className='flex items-center gap-2 '>
+                <p className='flex items-center gap-2 text-primary-dark'>
                   <span>
                     <FaUserLarge />
                   </span>
@@ -110,7 +110,14 @@ const MySessions = ({ sessions, tutorsData }) => {
               </div>
             </div>
           )
-        })
+        })) : (
+
+          <div className="col-span-full text-center py-10 bg-gray-100 dark:bg-gray-800 rounded-lg">
+            <p className="text-gray-600 dark:text-gray-300">
+              You have no Sessions yet. Book a session first.
+            </p>
+          </div>
+        )
       }
     </div>
   );

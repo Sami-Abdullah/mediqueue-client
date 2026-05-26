@@ -17,7 +17,7 @@ const HeroBanner = () => {
 
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
@@ -32,7 +32,7 @@ const HeroBanner = () => {
 
             <Image src={hero1} alt="hero" />
 
-            <div className="absolute inset-0 bg-[#0B2545]/60"></div>
+            <div className="absolute inset-0 bg-[#0B2545]/40 dark:bg-[#0B2545]/60"></div>
 
 
             <div className="absolute inset-0 flex items-center justify-center md:justify-start md:pl-24 z-10">
@@ -65,7 +65,7 @@ const HeroBanner = () => {
 
             <Image src={hero2} alt="hero" />
 
-            <div className="absolute inset-0 bg-[#0B2545]/60"></div>
+            <div className="absolute inset-0 bg-[#0B2545]/40 dark:bg-[#0B2545]/60"></div>
 
 
             <div className="absolute inset-0 flex items-center justify-center md:justify-start md:pl-24 z-10">
@@ -98,7 +98,7 @@ const HeroBanner = () => {
 
             <Image src={hero3} alt="hero" />
 
-            <div className="absolute inset-0 bg-[#0B2545]/60"></div>
+            <div className="absolute inset-0 bg-[#0B2545]/40 dark:bg-[#0B2545]/60"></div>
 
 
             <div className="absolute inset-0 flex items-center justify-center md:justify-start md:pl-24 z-10">
