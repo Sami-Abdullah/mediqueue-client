@@ -2,8 +2,8 @@
 import BookSessionModal from '@/component/tutor/BookSessionModal';
 import SlotMeter from '@/component/tutor/SlotMeter';
 import { auth } from '@/lib/auth';
-import { getTutorDetails } from '@/lib/Fetch';
-
+import { getTutorDetails } from '@/lib/FetchServer';
+import { headers } from "next/headers";
 import Image from 'next/image';
 import React from 'react';
 import { AiFillClockCircle } from 'react-icons/ai';
@@ -12,9 +12,14 @@ import { FaCalendarDays, FaLocationDot } from 'react-icons/fa6';
 import { IoCalendarSharp } from 'react-icons/io5';
 import { PiCurrencyDollarFill } from 'react-icons/pi';
 
-const TutorDetailsPage = async ({ params, searchParams }) => {
+const TutorDetailsPage = async ({ params }) => {
   const { id } = await params;
 
+
+  const session = await auth.api.getSession({
+    headers: await headers() // you need to pass the headers object.
+  })
+  const user = session?.user
 
   const tutor = await getTutorDetails(id)
 
@@ -90,7 +95,7 @@ const TutorDetailsPage = async ({ params, searchParams }) => {
                   <div className="flex items-center gap-2">
                     <span className="text-sm flex items-center gap-1 text-primary-dark"><FaLocationDot /> {tutor.location}</span>
                     <span className="text-sm text-primary-dark">•</span>
-                    <span className={`px-2 py-1 rounded-full text-xs bg-[#134074]/20 text-[#134074] `}>
+                    <span className={`px-2 py-1 rounded-full text-xs bg-[#134074]/-20 text-[#134074] `}>
                       {tutor.teachingMode}
                     </span>
                   </div>
@@ -113,7 +118,7 @@ const TutorDetailsPage = async ({ params, searchParams }) => {
             <div className="mt-6 pt-4 border-t border-gray-200">
               <div className="flex justify-between items-center">
                 <SlotMeter tutor={tutor}></SlotMeter>
-                <BookSessionModal id={id}></BookSessionModal>
+                <BookSessionModal id={id} user={user}></BookSessionModal>
               </div>
             </div>
 

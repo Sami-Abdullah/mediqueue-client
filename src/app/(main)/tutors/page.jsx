@@ -8,12 +8,13 @@ import { getTutors } from '@/lib/Fetch';
 
 const AllTutorPage = async ({ searchParams }) => {
   const { subject, location } = await searchParams;
-
   // Build query string
   const queryParams = new URLSearchParams();
+  console.log(queryParams.toString(),'query params here');
   if (subject) queryParams.append('subject', subject);
   if (location) queryParams.append('location', location);
-
+  
+  console.log(queryParams.toString(),'query params here');
   const queryString = queryParams.toString();
   
   const tutors = await getTutors(queryString);
@@ -104,6 +105,7 @@ const AllTutorPage = async ({ searchParams }) => {
                       src={tutor.photo}
                       alt={tutor.name}
                       fill
+                      sizes=''
                       className="object-cover "
                     />
                   ) : (

@@ -21,9 +21,9 @@ const AddTutorpage = () => {
     })
 
     if (res.ok) {
-      toast.success('Teacher added')
+      toast.success('Teacher added', { position: "bottom-center" })
     } else {
-      toast.error('Please try again later')
+      toast.error('Please try again later', { position: "bottom-center" })
     }
   }
 
@@ -158,9 +158,14 @@ const AddTutorpage = () => {
               <input
                 type="number"
                 placeholder="25"
+                min={0}
                 className="input input-bordered w-full bg-bg-light text-primary-dark border-primary/20 dark:bg-bg-dark dark:text-bg-light"
                 {...register("hourlyFee", {
-                  required: "Fee required"
+                  required: "Fee required", min: {
+                    value: 0,
+                    message: "Cannot be negative"
+                  },
+
                 })}
               />
             </div>

@@ -1,19 +1,27 @@
 'use client'
 import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
+import { AiOutlineSun, AiOutlineMoon } from 'react-icons/ai'
 
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Don't render anything until mounted on client
+  if (!mounted) return <div className="w-8 h-8" /> // placeholder to avoid layout shift
 
   return (
-    <div className=''> 
     <button
+      className="btn rounded-full"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="btn rounded bg-gray-200 text-primary-dark dark:bg-gray-700 dark:text-white transition-all "
     >
-      {theme === 'dark' ? '🌞 Light' : '🌙 Dark'}
+      {theme === 'dark' ? <AiOutlineMoon size={30} /> : <AiOutlineSun size={30} />}
     </button>
-    </div>
   )
 }
 
-export default ThemeChanger;
+export default ThemeChanger

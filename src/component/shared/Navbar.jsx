@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import ThemeChanger from './ThemeChanger';
 import { useState } from 'react';
 import Image from 'next/image';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const router = useRouter();
@@ -18,6 +19,7 @@ const Navbar = () => {
     router.push('/');
     document.getElementById('my_modal_4').close()
     setisOpen(false);
+    toast.success('Sign out successfully',{position: "bottom-center"})
   };
 
   const {
@@ -27,15 +29,14 @@ const Navbar = () => {
   const user = session?.user
   const linkClass = (url) =>
     `px-3 py-1 rounded-md transition ${isActive(url)
-      ? 'bg-white text-black'
-      : 'hover:bg-white/10 text-white'
+      ? 'bg-primary-dark text-white dark:bg-white dark:text-primary-dark'
+      : 'hover:bg-white/10 text-primary-dark dark:text-bg-light'
     }`;
 
-console.log('isOpen:', isOpen, '| isPending:', isPending, '| session:', !!session);
 
   return (
     <div className="md:mb-16">
-      <div className="navbar bg-primary-dark shadow-sm dark:text-white fixed z-50 top-0 left-0 w-full">
+      <div className="navbar bg-bg-light dark:bg-primary-dark shadow-sm dark:text-white fixed z-50 top-0 left-0 w-full">
         <div className="flex items-center justify-between w-11/12 mx-auto">
 
           {/* LEFT SIDE */}
@@ -79,7 +80,7 @@ console.log('isOpen:', isOpen, '| isPending:', isPending, '| session:', !!sessio
               </ul>
             </div>
 
-            <Link href="/" className="text-xl font-bold italic text-white">
+            <Link href="/" className="text-xl font-bold italic text-primary-dark dark:text-white">
               MediQueue
             </Link>
           </div>
@@ -145,10 +146,10 @@ console.log('isOpen:', isOpen, '| isPending:', isPending, '| session:', !!sessio
 
             ) : (
               <div className="space-x-3">
-                <Link href="/signin" className="btn bg-[#134074]/20 text-white">
+                <Link href="/signin" className="btn bg-primary-dark dark:bg-[#134074]/20 border-0 text-white">
                   Sign in
                 </Link>
-                <Link href="/signup" className="btn bg-error/30 text-white">
+                <Link href="/signup" className="btn btn-error dark:bg-error/30 border-0 text-white">
                   Sign Up
                 </Link>
               </div>

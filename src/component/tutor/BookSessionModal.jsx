@@ -1,18 +1,14 @@
 'use client'
-import { authClient } from '@/lib/auth-client';
+
+import { addBookings } from '@/lib/Fetch';
+
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify'
 
-const BookSessionModal = ({ id }) => {
-  const {
-    data: session,
-    isPending, //loading state
-    error, //error object
-    refetch //refetch the session
-  } = authClient.useSession()
-  const user = session?.user;
-
+const BookSessionModal = ({ id,user }) => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -24,20 +20,19 @@ const BookSessionModal = ({ id }) => {
 
     data.teacherid = id
     data.studentid = user.id
+    
     console.log(data);
-    const res = await fetch('http://localhost:5000/bookings', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(data)
 
-    })
+    const res =await addBookings(data)
+    
+    console.log(res,'i am here');
     document.getElementById('my_modal_1').close()
     if (res) {
-      toast.success('Session booked')
+      toast.success('Session booked',{position: "bottom-center"})
+      router.refresh()
+
     } else {
-      toast.error('Try again later')
+      toast.error('Try again later',{position: "bottom-center"})
     }
   }
 

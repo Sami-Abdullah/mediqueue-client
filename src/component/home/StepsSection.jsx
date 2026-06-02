@@ -12,11 +12,11 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50 w-9/12 ">
+    <section className="py-16 bg-gray-50 w-9/12 mb-10">
       <div className=" px-4">
 
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0b2545]">
             Learn Smarter in Just <span className="text-[#0b2545]">Few Simple Steps</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">

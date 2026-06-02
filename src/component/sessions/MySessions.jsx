@@ -15,8 +15,6 @@ const MySessions = ({ sessions, tutorsData }) => {
 
   const stu = session?.user
 
-  console.log(stu, 'student here');
-  console.log(stu.id, 'student id here');
 
 
   const mySessions = sessions.filter
