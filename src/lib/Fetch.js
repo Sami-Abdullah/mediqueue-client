@@ -12,7 +12,7 @@ export const getBookings = async () => {
   return data
 }
 export const addBookings = async (data) => {
-  console.log(process.env.SERVER_URL);
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings`, {
     method: 'POST',
     headers: {
@@ -44,8 +44,6 @@ export const getUser = async (id) => {
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/users
       /${id}`, {
-
-
   })
 
   const data = res.json()

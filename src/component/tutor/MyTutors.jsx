@@ -23,7 +23,7 @@ const MyTutors = ({ bookingDatas, tutorDatas }) => {
   const tutors = myBookings.map(booking => {
 
     const teacher = tutorDatas.find(tutor => {
-      return tutor._id === booking.teacherid;
+      return tutor._id.toString() === booking.teacherid;
     });
 
 

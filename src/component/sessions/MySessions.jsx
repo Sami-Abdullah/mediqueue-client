@@ -25,7 +25,7 @@ const MySessions = ({ sessions, tutorsData }) => {
 
   const myTutors = mySessions.map(session => {
 
-    const myTutor = tutorsData.find(tutor => session.teacherid === tutor._id)
+    const myTutor = tutorsData.find(tutor => session.teacherid === tutor._id.toString())
     return {
       ...myTutor,
       bookingId: session._id,
