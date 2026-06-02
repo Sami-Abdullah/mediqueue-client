@@ -4,7 +4,7 @@ export const getTutorDetails = async (id) => {
     const { token } = await auth.api.getToken({
       headers: await headers()
     })
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/tutors/${id}`, {
+    const res = await fetch(`${process.env.SERVER_URL}/tutors/${id}`, {
       method:"GET",
       headers: {
         authorization: `Bearer ${token}`,
@@ -13,6 +13,6 @@ export const getTutorDetails = async (id) => {
 
     })
 
-  const data = res.json()
+  const data = await res.json()
   return data
 }
