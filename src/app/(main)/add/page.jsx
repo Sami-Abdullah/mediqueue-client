@@ -1,4 +1,5 @@
 'use client'
+import { addTutor } from '@/lib/Fetch';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -12,15 +13,9 @@ const AddTutorpage = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
-    const res = await fetch('http://localhost:5000/tutors', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-
-    if (res.ok) {
+    const res =await  addTutor(data)
+    console.log(res,'herere');
+    if (res) {
       toast.success('Teacher added', { position: "bottom-center" })
     } else {
       toast.error('Please try again later', { position: "bottom-center" })

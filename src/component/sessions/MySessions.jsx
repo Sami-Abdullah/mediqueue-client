@@ -17,8 +17,8 @@ const MySessions = ({ sessions, tutorsData }) => {
 
 
 
-  const mySessions = sessions.filter
-    (session => session.studentid === stu.id)
+  const mySessions = sessions?.filter
+    (session => session.studentid === stu?.id)
 
   console.log(mySessions, 'booking here');
 
